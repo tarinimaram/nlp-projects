@@ -3,11 +3,18 @@ import matplotlib.pyplot as plt
 import nltk
 import numpy as np
 import string
+import requests
 from numpy import linalg
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from nltk.tokenize import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords, wordnet
 from nltk.stem.wordnet import WordNetLemmatizer
+
+def get_definition(word, ref, key):
+    uri = "https://dictionaryapi.com/api/v3/references/" + word + "/json/" + ref + "?key=" + key
+    return requests.get(uri)
+
+api_url = https://dictionaryapi.com/api/v3/references/collegiate/json/test?key=961008ea-3343-4593-a642-8a1b2975b362
 
 with open('definition.txt', encoding = 'ISO-8859-2') as f:
     textRaw = f.read()
